@@ -8,5 +8,6 @@ import (
 func UserRoutesSetup(users *gin.RouterGroup) {
 
 	users.POST("/creates", handlers.CreateUserHandler)
+	users.GET("/users", handlers.GetUsers)
 
 }

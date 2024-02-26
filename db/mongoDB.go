@@ -11,9 +11,9 @@ import (
 )
 
 var Client *mongo.Client
-var Collection *mongo.Collection
+var Users *mongo.Collection
 
-func ConnectToMongoDB() {
+func ConnectToMongoDB(database string) {
 	// MongoDB connection URI
 	uri := "mongodb://localhost:27017"
 
@@ -37,6 +37,8 @@ func ConnectToMongoDB() {
 
 	log.Println("Connected to MongoDB!")
 	Client = client
+
+	Users = client.Database(database).Collection("users")
 
 }
 
